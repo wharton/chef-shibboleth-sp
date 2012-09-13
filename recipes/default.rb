@@ -19,37 +19,37 @@
 
 case node['platform']
 when 'redhat'
-	unless node['shibboleth-sp']['redhat']['use_rhn']
-		include_recipe "yum"
+  unless node['shibboleth-sp']['redhat']['use_rhn']
+    include_recipe "yum"
 
-		yum_key "RPM-GPG-KEY-security:shibboleth" do
-			url "http://download.opensuse.org/repositories/security:/shibboleth/RHEL_#{node['platform_version'].to_i}/repodata/repomd.xml.key"
-			action :add
-		end
+    yum_key "RPM-GPG-KEY-security:shibboleth" do
+      url "http://download.opensuse.org/repositories/security:/shibboleth/RHEL_#{node['platform_version'].to_i}/repodata/repomd.xml.key"
+      action :add
+    end
 
-		yum_repository "security:shibboleth" do
-			description "Shibboleth Repository"
-			url "http://download.opensuse.org/repositories/security:/shibboleth/RHEL_#{node['platform_version'].to_i}/"
-			key "RPM-GPG-KEY-security:shibboleth"
-			type "rpm-md"
-			action :add
-		end
-	end
+    yum_repository "security:shibboleth" do
+      description "Shibboleth Repository"
+      url "http://download.opensuse.org/repositories/security:/shibboleth/RHEL_#{node['platform_version'].to_i}/"
+      key "RPM-GPG-KEY-security:shibboleth"
+      type "rpm-md"
+      action :add
+    end
+  end
 
-	package "shibboleth"
+  package "shibboleth"
 when 'ubuntu'
-	package "libshibsp5"
+  package "libshibsp5"
 when 'windows'
-	windows_package "Shibboleth Service Provider" do
-		source node['shibboleth-sp']['windows']['url']
-		checksum node['shibboleth-sp']['windows']['checksum']
-		action :install
-		not_if { File.exists? "C:/opt/shibboleth/sbin/shibd.exe" }
-	end
+  windows_package "Shibboleth Service Provider" do
+    source node['shibboleth-sp']['windows']['url']
+    checksum node['shibboleth-sp']['windows']['checksum']
+    action :install
+    not_if { File.exists? "C:/opt/shibboleth/sbin/shibd.exe" }
+  end
 end 
 
 service "shibd" do
-	service_name "Shibboleth 2 Daemon (Default)" if platform? 'windows'
-	supports :status => true, :restart => true, :reload => true
-	action [ :enable, :start ]
+  service_name "Shibboleth 2 Daemon (Default)" if platform? 'windows'
+  supports :status => true, :restart => true, :reload => true
+  action [ :enable, :start ]
 end

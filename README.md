@@ -83,10 +83,10 @@ you are probably better off using the `shibboleth_sp` provider outlined below.
 Using the shibboleth_sp provider, you can include your own custom configuration
 template.
 
-	shibboleth_sp "app_name" do
-		template "shibboleth2.xml.erb"
-		cookbook "my-site-shibboleth-sp"
-	end
+    shibboleth_sp "app_name" do
+      template "shibboleth2.xml.erb"
+      cookbook "my-site-shibboleth-sp"
+    end
 
 ### Apache Handling
 

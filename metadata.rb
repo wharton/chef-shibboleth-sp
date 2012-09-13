@@ -9,9 +9,9 @@ recipe            "shibboleth-sp::iis", "Base recipe and IIS handling."
 recipe            "shibboleth-sp::simple", "Base recipe and simple attribute-driven configuration."
 
 %w{ apache2 windows yum }.each do |d|
-	depends d
+  depends d
 end
 
 %w{ redhat ubuntu windows }.each do |os|
-	supports os
+  supports os
 end
