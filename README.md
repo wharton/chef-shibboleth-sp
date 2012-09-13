@@ -1,37 +1,101 @@
-# template-cookbook
+# shibboleth-sp
 
 ## Description
 
-A cool description – preferably wrapped at 80 characters.
+Installs/Configures Shibboleth Service Provider.
 
 ## Requirements
 
 ### Platforms
 
 * RedHat 6.3 (Santiago)
-* Ubuntu 11.10 (Oneiric)
 * Ubuntu 12.04 (Precise)
+* Windows 2008 R2 64-bit
 
 ### Cookbooks
 
 * apache2
-* logrotate
+* windows
+* yum
 
 ## Attributes
 
-* `node["template_cookbook"]["version"]` - Version of template-cookbook to
-  install.
-* `node["template_cookbook"]["user"]` - User for template-cookbook.
-* `node["template_cookbook"]["group"]` - Group for template-cookbook.
+* `node['shibboeth-sp']['version']` - Version of shibboleth-sp to
+  install (if Windows or from source).
+
+### Simple Attribute-Driven Configuration Attributes
+
+* `node['shibboleth-sp']['Errors']['supportContact']` - admin email, defaults
+  to "root@FQDN"
+* `node['shibboleth-sp']['entityID']` - SP entity URL, defaults to 
+  https://FQDN/shibboleth
+* `node['shibboleth-sp']['REMOTE_USER']` - REMOTE_USER data returned to web
+  server, defaults to "eppn persistent-id targeted-id"
+* `node['shibboleth-sp']['Sessions']['checkAddress']` - check source address,
+  breaks with NAT/proxy, defaults to "false"
+* `node['shibboleth-sp']['Sessions']['cookieProps']` - cookie properties,
+  defaults to "http"
+* `node['shibboleth-sp']['Sessions']['handlerSSL']` - only SSL requests will be
+  handled, defaults to "false"
+* `node['shibboleth-sp']['Sessions']['lifetime']` - defaults to 28800
+* `node['shibboleth-sp']['Sessions']['relayState']` - defaults to "ss:mem"
+* `node['shibboleth-sp']['Sessions']['timeout']` - defaults to 3600
+* `node['shibboleth-sp']['SSO']['entityID']` - single IdP entity URL,
+  _must_ be set to your IdP unless using
+  `node['shibboleth-sp']['SSO']['discoveryURL']`
+* `node['shibboleth-sp']['SSO']['discoveryProtocol']` - Multiple IdP Discovery
+  Service Protocol, defaults to "SAMLDS", another protocol is "WAYF"
+* `node['shibboleth-sp']['SSO']['discoveryURL']` - Multiple IdP Discovery
+  Service URL, will override `node['shibboleth-sp']['SSO']['entityID']`
+
+### Web Server Specific Attributes
+
+### Platform Specific Attributes
+
+* `node['shibboeth-sp']['redhat']['use_rhn']` - Use RHN-synchronized repository
+  for shibboleth installation
+* `node['shibboeth-sp']['windows']['url']` - URL for Windows shibboleth-sp.
+* `node['shibboeth-sp']['windows']['checksum']` - Checksum for Windows
+  shibboleth-sp.
 
 ## Recipes
 
-* `recipe[template-cookbook]` will install template-cookbook.
-* `recipe[template-cookbook::alternate]` will install alternate
-  template-cookbook.
+* `recipe[shibboleth-sp]` Installs and enables base Shibboleth Service
+  Provider.
+* `recipe[shibboleth-sp::apache2]` Base recipe and Apache handling.
+* `recipe[shibboleth-sp::iis]` Base recipe and IIS handling.
+* `recipe[shibboleth-sp::simple]` Base recipe and simple attribute-driven configuration.
 
 ## Usage
 
-A short write-up of any usage specific instructions.  For example, default
-passwords, examples of attributes that alter recipe behavior, and
-auto-discovery of dependant services.
+For just installation and enabling the Shibboleth Service Provider, just add
+`recipe[shibboleth-sp]` to your run list. The other recipes are modular for
+specific configuration scenarios.
+
+### Simple Attribute-Driven Configuration
+
+Using `recipe[shibboleth-sp::simple]` gives you a basic attribute-driven model
+for configuring simple Shibboleth SPs. Anything beyond the givem attributes,
+you are probably better off using the `shibboleth_sp` provider outlined below.
+
+### Custom Shibboleth SP Configuration
+
+Using the shibboleth_sp provider, you can include your own custom configuration
+template.
+
+	shibboleth_sp "app_name" do
+		template "shibboleth2.xml.erb"
+		cookbook "my-site-shibboleth-sp"
+	end
+
+### Apache Handling
+
+On platforms (such as Ubuntu) where the Apache module installation is separate
+from the SP installation, `recipe[shibboleth-sp::apache2]` handles that process.
+
+More functionality for actual Shibboleth SP configuration within Apache
+(preferred over XML-based configuration) will be added.
+
+### IIS Handling
+
+More soon about `recipe[shibboleth-sp::iis]`.
