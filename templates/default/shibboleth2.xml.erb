@@ -9,7 +9,7 @@
 	xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
 	clockSkew="180">
 
-	<% if node['platform'] == "windows" -%>
+	<% if node['shibboleth-sp']['iis']['sites'] -%>
 	<!--
 	The InProcess section contains settings affecting web server modules.
 	Required for IIS, but can be removed when using other web servers.
@@ -57,7 +57,7 @@
 	file, and the https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPRequestMapHowTo topic.
 	-->
 
-	<% if node['platform'] == "windows" -%>
+	<% if node['shibboleth-sp']['iis']['hosts'] -%>
 	<!--
 	To customize behavior for specific resources on IIS, and to link vhosts or
 	resources to ApplicationOverride settings below, use the XML syntax below.
@@ -95,6 +95,7 @@
 			<% end -%>
 		</RequestMap>
 	</RequestMapper>
+	<% end -%>
 
 	<!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
 	<ApplicationDefaults entityID="<%= node['shibboleth-sp']['entityID'] %>"
