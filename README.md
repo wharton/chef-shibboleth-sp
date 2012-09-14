@@ -76,17 +76,12 @@ specific configuration scenarios.
 
 Using `recipe[shibboleth-sp::simple]` gives you a basic attribute-driven model
 for configuring simple Shibboleth SPs. Anything beyond the givem attributes,
-you are probably better off using the `shibboleth_sp` provider outlined below.
+you are probably better off writing a custom site cookbook, outlined below.
 
 ### Custom Shibboleth SP Configuration
 
-Using the shibboleth_sp provider, you can include your own custom configuration
-template.
-
-    shibboleth_sp "app_name" do
-      template "shibboleth2.xml.erb"
-      cookbook "my-site-shibboleth-sp"
-    end
+Use `recipe[shibboleth-sp]` and create a site cookbook that uses cookbook_files
+or templates to overwrite files in the Shibboleth SP directory.
 
 ### Apache Handling
 
