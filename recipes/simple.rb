@@ -19,14 +19,7 @@
 
 include_recipe "shibboleth-sp"
 
-case node['platform']
-when 'windows'
-	config_path = "C:/opt/shibboleth-sp/etc/shibboleth"
-else
-	config_path = "/etc/shibboleth"
-end
-
-template "#{config_path}/shibboleth2.xml" do
+template "#{node['shibboleth-sp']['dir']}/shibboleth2.xml" do
 	source "shibboleth2.xml.erb"
 	owner "root" unless platform? 'windows'
 	group "root" unless platform? 'windows'
