@@ -19,12 +19,12 @@
 
 action :create do
   template "#{node['shibboleth-sp']['dir']}/shibboleth2.xml" do
-    source params['template']
+    source new_resource.template
     owner "root" unless platform? 'windows'
     group "root" unless platform? 'windows'
     mode "0644"
-    if params['cookbook']
-      cookbook params['cookbook']
+    if new_resource.cookbook
+      cookbook new_resource.cookbook
     end
   end
   notifies :restart, resources(:service => "shibd"), :delayed
