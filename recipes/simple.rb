@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "shibboleth-sp"
+
 case node['platform']
 when 'windows'
 	config_path = "C:/opt/shibboleth-sp/etc/shibboleth"
