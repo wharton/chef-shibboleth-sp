@@ -50,7 +50,9 @@ Installs/Configures Shibboleth Service Provider.
 * `node['shibboleth-sp']['attribute-map']['name-id']` - A hash with the NameID
   name and id to map from the IdP.`
 * `node['shibboleth-sp']['attribute-map']['attributes']` - An array of hashs 
-  with the name, id, and format of attirbutes to map from the IdP.`
+  with the name, id, and format of attirbutes to map from the IdP. By default
+  firstName and lastName attributes are defined as an example but this array
+  may be left blank if no IdP attributes need to be mapped.`
 
 
 ### Web Server Specific Attributes
