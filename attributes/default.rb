@@ -48,6 +48,6 @@ end
 default['shibboleth-sp']['attribute-map']['name-id'] = { "name" => "emailAddress", id => "emailAddress" }
 default['shibboleth-sp']['attribute-map']['attributes'] = [
 	{"name" => "firstName", "id" => "firstName", "format" => "basic"},
-	{"name" => "firstName", "id" => "firstName", "format" => "basic"}
+	{"name" => "lastName", "id" => "lastName", "format" => "basic"}
 ]
 
