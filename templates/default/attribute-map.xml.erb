@@ -165,4 +165,18 @@
       <AttributeDecoder xsi:type="NameIDAttributeDecoder" />
     </Attribute>
 
+    <% if node['shibboleth-sp']['attribute-map']['attributes'] -%>
+    <% node['shibboleth-sp']['attribute-map']['attributes'].each do |attribute| -%>
+    <Attribute name="<%= attribute['name'] %>" id="<%= attribute['id'] %>"
+      <% when attribute['nameFormat'] -%>
+      <% case 'basic' -%>
+      nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+      <% case 'unspecified' -%>
+      nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+      <% case 'uri' -%>
+      nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+      <% end -%>
+    />
+    <% end -%>
+    <% end -%>
 </Attributes>
