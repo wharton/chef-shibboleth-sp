@@ -47,6 +47,11 @@ Installs/Configures Shibboleth Service Provider.
   Service Protocol, defaults to "SAMLDS", another protocol is "WAYF"
 * `node['shibboleth-sp']['SSO']['discoveryURL']` - Multiple IdP Discovery
   Service URL, will override `node['shibboleth-sp']['SSO']['entityID']`
+* `node['shibboleth-sp']['attribute-map']['name-id']` - A hash with the NameID
+  name and id to map from the IdP.`
+* `node['shibboleth-sp']['attribute-map']['attributes']` - An array of hashs 
+  with the name, id, and format of attirbutes to map from the IdP.`
+
 
 ### Web Server Specific Attributes
 
