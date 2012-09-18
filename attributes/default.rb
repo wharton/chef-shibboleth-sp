@@ -43,3 +43,11 @@ else
   default['shibboleth-sp']['dir'] = "/etc/shibboleth"
   default['shibboleth-sp']['redhat']['use_rhn'] = false
 end
+
+# SAML Attributes
+default['shibboleth-sp']['name-id'] = { "name" => "emailAddress", id => "emailAddress" }
+default['shibboleth-sp']['attributes'] = [
+	{"name" => "firstName", "id" => "firstName", "format" => "basic"},
+	{"name" => "firstName", "id" => "firstName", "format" => "basic"}
+]
+
