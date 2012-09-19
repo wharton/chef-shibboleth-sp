@@ -1,3 +1,7 @@
+## v0.0.4
+
+* Fixed attribute-map template
+
 ## v0.0.3
 
 * Added additional libapache2-mod-shib2 package for Ubuntu shibd installation
