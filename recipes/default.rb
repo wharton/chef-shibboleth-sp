@@ -38,7 +38,9 @@ when 'redhat'
 
   package "shibboleth"
 when 'ubuntu'
-  package "libshibsp5"
+  %w{ libshibsp-dev libshibsp-doc opensaml2-tools shibboleth-sp2-schemas }.each do |pkg|
+    package pkg
+  end
 when 'windows'
   windows_package "Shibboleth Service Provider" do
     source node['shibboleth-sp']['windows']['url']
