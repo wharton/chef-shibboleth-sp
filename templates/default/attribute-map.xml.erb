@@ -170,12 +170,12 @@
     <% if node['shibboleth-sp']['attribute-map']['attributes'] -%>
     <% node['shibboleth-sp']['attribute-map']['attributes'].each do |attribute| -%>
     <Attribute name="<%= attribute['name'] %>" id="<%= attribute['id'] %>"
-      <% when attribute['nameFormat'] -%>
-      <% case 'basic' -%>
+      <% case attribute['nameFormat'] -%>
+      <% when 'basic' -%>
       nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
-      <% case 'unspecified' -%>
+      <% when 'unspecified' -%>
       nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
-      <% case 'uri' -%>
+      <% when 'uri' -%>
       nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
       <% end -%>
     />
