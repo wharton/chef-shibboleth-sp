@@ -41,6 +41,12 @@ when 'ubuntu'
   %w{ libapache2-mod-shib2 libshibsp-dev libshibsp-doc opensaml2-tools shibboleth-sp2-schemas }.each do |pkg|
     package pkg
   end
+
+  execute "Generate Shibboleth SP Key" do
+    cwd node['shibboleth-sp']['dir']
+    command "shib-keygen"
+    creates "sp-key.pem"
+  end
 when 'windows'
   windows_package "Shibboleth Service Provider" do
     source node['shibboleth-sp']['windows']['url']

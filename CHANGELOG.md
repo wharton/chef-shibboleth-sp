@@ -1,3 +1,7 @@
+## v0.0.5
+
+* Add Ubuntu SP key generation to default recipe
+
 ## v0.0.4
 
 * Fixed attribute-map template
