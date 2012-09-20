@@ -1,3 +1,7 @@
+## v0.0.7
+
+* Additional attribute check for attribute-map
+
 ## v0.0.6
 
 * Fixed SP key generation creates check to absolute path
