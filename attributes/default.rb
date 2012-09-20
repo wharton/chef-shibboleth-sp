@@ -26,12 +26,20 @@ default['shibboleth-sp']['Sessions']['handlerSSL'] = "false"
 default['shibboleth-sp']['Sessions']['lifetime'] = 28800
 default['shibboleth-sp']['Sessions']['relayState'] = "ss:mem"
 default['shibboleth-sp']['Sessions']['timeout'] = 3600
+
 # Single IdP (overrode by ['SSO']['discoveryURL'])
 default['shibboleth-sp']['SSO']['entityID'] = "https://idp.example.org/idp/shibboleth"
 default['shibboleth-sp']['SSO']['discoveryProtocol'] = "SAMLDS"
+
 # Multiple IdP Discovery (overrides ['SSO']['entityID'])
 default['shibboleth-sp']['SSO']['discoveryURL'] = ""
 default['shibboleth-sp']['version'] = "2.5.0"
+
+# Metadata Provider
+# default['shibboleth-sp']['MetadataProvider']['path'] = ""
+# default['shibboleth-sp']['MetadataProvider']['url'] = ""
+# default['shibboleth-sp']['MetadataProvider']['backingFilePath'] = ""
+# default['shibboleth-sp']['MetadataProvider']['reloadInterval'] = ""
 
 # Platform specific customizations
 case node['platform']
@@ -44,7 +52,8 @@ else
   default['shibboleth-sp']['redhat']['use_rhn'] = false
 end
 
-# SAML attributes for attribute-map.xml, examples below
+# SAML attributes for attribute-map.xml
+
 # default['shibboleth-sp']['attribute-map']['name-id'] = { "name" => "emailAddress", "id" => "emailAddress" }
 # default['shibboleth-sp']['attribute-map']['attributes'] = [
 	# {"name" => "firstName", "id" => "firstName" },
