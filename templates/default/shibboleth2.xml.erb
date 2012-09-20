@@ -177,8 +177,9 @@
 					url="<%= node['shibboleth-sp']['MetadataProvider']['url'] %>"
 					backingFilePath="<%= node['shibboleth-sp']['MetadataProvider']['backingFilePath'] ? node['shibboleth-sp']['MetadataProvider']['backingFilePath'] : 'idp-metadata.xml' %>"
 					<%- if node['shibboleth-sp']['MetadataProvider']['reloadInterval'] %>
-					reloadInterval="<%= node['shibboleth-sp']['MetadataProvider']['reloadInterval'] %>">
+					reloadInterval="<%= node['shibboleth-sp']['MetadataProvider']['reloadInterval'] %>"
 					<% end -%>
+					>
 				</MetadataProvider>
 				<% end -%>
 			<% end -%>
