@@ -21,7 +21,7 @@ default['shibboleth-sp']['Errors']['supportContact'] = "root@#{node['fqdn']}"
 default['shibboleth-sp']['entityID'] = "https://#{node['fqdn']}/shibboleth"
 default['shibboleth-sp']['REMOTE_USER'] = "eppn persistent-id targeted-id"
 default['shibboleth-sp']['Sessions']['checkAddress'] = "false"
-default['shibboleth-sp']['Sessions']['cookieProps'] = "http"
+default['shibboleth-sp']['Sessions']['cookieProps'] = "; path=/; HttpOnly"
 default['shibboleth-sp']['Sessions']['handlerSSL'] = "false"
 default['shibboleth-sp']['Sessions']['lifetime'] = 28800
 default['shibboleth-sp']['Sessions']['relayState'] = "ss:mem"
@@ -34,6 +34,9 @@ default['shibboleth-sp']['SSO']['discoveryProtocol'] = "SAMLDS"
 # Multiple IdP Discovery (overrides ['SSO']['entityID'])
 default['shibboleth-sp']['SSO']['discoveryURL'] = ""
 default['shibboleth-sp']['version'] = "2.5.0"
+
+# Status Handler ACL
+default['shibboleth-sp']['Handler']['Status']['acl'] = "127.0.0.1 ::1"
 
 # Metadata Provider
 # default['shibboleth-sp']['MetadataProvider']['path'] = ""

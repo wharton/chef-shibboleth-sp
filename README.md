@@ -34,7 +34,7 @@ Installs/Configures Shibboleth Service Provider.
 * `node['shibboleth-sp']['Sessions']['checkAddress']` - check source address,
   breaks with NAT/proxy, defaults to "false"
 * `node['shibboleth-sp']['Sessions']['cookieProps']` - cookie properties,
-  defaults to "http"
+  defaults to "; path=/; HttpOnly"
 * `node['shibboleth-sp']['Sessions']['handlerSSL']` - only SSL requests will be
   handled, defaults to "false"
 * `node['shibboleth-sp']['Sessions']['lifetime']` - defaults to 28800
