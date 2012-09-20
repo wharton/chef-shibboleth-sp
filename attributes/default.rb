@@ -44,10 +44,10 @@ else
   default['shibboleth-sp']['redhat']['use_rhn'] = false
 end
 
-# SAML attributes for attribute-map.xml
-default['shibboleth-sp']['attribute-map']['name-id'] = { "name" => "emailAddress", id => "emailAddress" }
-default['shibboleth-sp']['attribute-map']['attributes'] = [
+# SAML attributes for attribute-map.xml, examples below
+# default['shibboleth-sp']['attribute-map']['name-id'] = { "name" => "emailAddress", "id" => "emailAddress" }
+# default['shibboleth-sp']['attribute-map']['attributes'] = [
 	# {"name" => "firstName", "id" => "firstName" },
 	# {"name" => "lastName", "id" => "lastName", "nameFormat" => "basic"}
-]
+# ]
 
