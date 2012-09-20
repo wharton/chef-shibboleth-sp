@@ -1,3 +1,8 @@
+## v0.0.6
+
+* Fixed SP key generation creates check to absolute path
+* attribute-map does not assume defaults for name-id
+
 ## v0.0.5
 
 * Add Ubuntu SP key generation to default recipe

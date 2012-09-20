@@ -45,7 +45,7 @@ when 'ubuntu'
   execute "Generate Shibboleth SP Key" do
     cwd node['shibboleth-sp']['dir']
     command "shib-keygen"
-    creates "sp-key.pem"
+    creates "#{node['shibboleth-sp']['dir']}/sp-key.pem"
   end
 when 'windows'
   windows_package "Shibboleth Service Provider" do
