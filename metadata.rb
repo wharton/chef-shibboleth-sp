@@ -8,7 +8,7 @@ recipe            "shibboleth-sp::apache", "Base recipe and Apache handling."
 recipe            "shibboleth-sp::iis", "Base recipe and IIS handling."
 recipe            "shibboleth-sp::simple", "Base recipe and simple attribute-driven configuration."
 
-%w{ apache2 windows yum }.each do |d|
+%w{ apache2 shibboleth-sp windows yum }.each do |d|
   depends d
 end
 

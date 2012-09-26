@@ -1,4 +1,4 @@
-# shibboleth-sp
+# chef-shibboleth-sp [![Build Status](https://secure.travis-ci.org/wharton/chef-shibboleth-sp.png?branch=master)](http://travis-ci.org/wharton/chef-shibboleth-sp)
 
 ## Description
 
