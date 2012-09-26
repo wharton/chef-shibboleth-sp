@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+default['shibboleth-sp']['version'] = "2.5.0"
+
 default['shibboleth-sp']['Errors']['supportContact'] = "root@#{node['fqdn']}"
 default['shibboleth-sp']['entityID'] = "https://#{node['fqdn']}/shibboleth"
 default['shibboleth-sp']['REMOTE_USER'] = "eppn persistent-id targeted-id"
@@ -33,7 +35,6 @@ default['shibboleth-sp']['SSO']['discoveryProtocol'] = "SAMLDS"
 
 # Multiple IdP Discovery (overrides ['SSO']['entityID'])
 default['shibboleth-sp']['SSO']['discoveryURL'] = ""
-default['shibboleth-sp']['version'] = "2.5.0"
 
 # Status Handler ACL
 default['shibboleth-sp']['Handler']['Status']['acl'] = "127.0.0.1 ::1"
@@ -43,6 +44,13 @@ default['shibboleth-sp']['Handler']['Status']['acl'] = "127.0.0.1 ::1"
 # default['shibboleth-sp']['MetadataProvider']['url'] = ""
 # default['shibboleth-sp']['MetadataProvider']['backingFilePath'] = ""
 # default['shibboleth-sp']['MetadataProvider']['reloadInterval'] = ""
+
+# SAML attributes for attribute-map.xml
+# default['shibboleth-sp']['attribute-map']['name-id'] = { "name" => "emailAddress", "id" => "emailAddress" }
+# default['shibboleth-sp']['attribute-map']['attributes'] = [
+	# {"name" => "firstName", "id" => "firstName", "nameFormat" => "basic"},
+	# {"name" => "lastName", "id" => "lastName", "nameFormat" => "basic"}
+# ]
 
 # Platform specific customizations
 case node['platform']
@@ -55,11 +63,5 @@ else
   default['shibboleth-sp']['redhat']['use_rhn'] = false
 end
 
-# SAML attributes for attribute-map.xml
 
-# default['shibboleth-sp']['attribute-map']['name-id'] = { "name" => "emailAddress", "id" => "emailAddress" }
-# default['shibboleth-sp']['attribute-map']['attributes'] = [
-	# {"name" => "firstName", "id" => "firstName" },
-	# {"name" => "lastName", "id" => "lastName", "nameFormat" => "basic"}
-# ]
 
