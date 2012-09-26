@@ -1,3 +1,9 @@
+## v0.0.8
+
+* Updated README
+* Added attributes for status handler acl, metadataprovider, and attribute-map.
+* Moved apache2 recipe functionality to default
+
 ## v0.0.7
 
 * Additional attribute check for attribute-map
