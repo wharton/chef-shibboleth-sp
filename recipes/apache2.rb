@@ -18,11 +18,3 @@
 #
 
 include_recipe "shibboleth-sp"
-
-case node['platform']
-when 'ubuntu'
-	include_recipe "apache2"
-	
-	package "libapache2-mod-shib2"
-	apache_module "shib2"
-end
