@@ -41,17 +41,25 @@ Installs/Configures Shibboleth Service Provider.
 * `node['shibboleth-sp']['Sessions']['relayState']` - defaults to "ss:mem"
 * `node['shibboleth-sp']['Sessions']['timeout']` - defaults to 3600
 * `node['shibboleth-sp']['SSO']['entityID']` - single IdP entity URL,
-  _must_ be set to your IdP unless using
-  `node['shibboleth-sp']['SSO']['discoveryURL']`
+  _must_ be set to your IdP unless using `node['shibboleth-sp']['SSO']['discoveryURL']`
 * `node['shibboleth-sp']['SSO']['discoveryProtocol']` - Multiple IdP Discovery
   Service Protocol, defaults to "SAMLDS", another protocol is "WAYF"
 * `node['shibboleth-sp']['SSO']['discoveryURL']` - Multiple IdP Discovery
   Service URL, will override `node['shibboleth-sp']['SSO']['entityID']`
+* `node['shibboleth-sp']['Hanlder']['Status']['acl']` - IPs that can access the
+  status handler. Defaults to `127.0.0.1 ::1`. If set to a blank string no acl
+  is applied.
 * `node['shibboleth-sp']['attribute-map']['name-id']` - A hash with the NameID
-  name and id to map from the IdP.`
+  name and id to map from the IdP.
+* `node['shibboleth-sp']['MetadataProvider']['path']` - Path to IdP metadata file.
+* `node['shibboleth-sp']['MetadataProvider']['url']` - URL of IdP metadata file.
+* `node['shibboleth-sp']['MetadataProvider']['backingFilePath']` - Path to cach a
+  copy of the IdP metadata if using a URL.
+* `node['shibboleth-sp']['MetadataProvider']['reloadInterval']` - Interval to
+  check for metadata updates. 
 * `node['shibboleth-sp']['attribute-map']['attributes']` - An array of hashs 
   with the name (required), id (required), and nameFormat (optional) of 
-  attirbutes to map from the IdP.`
+  attirbutes to map from the IdP.
 
 
 ### Web Server Specific Attributes
@@ -91,11 +99,7 @@ or templates to overwrite files in the Shibboleth SP directory.
 
 ### Apache Handling
 
-On platforms (such as Ubuntu) where the Apache module installation is separate
-from the SP installation, `recipe[shibboleth-sp::apache2]` handles that process.
-
-More functionality for actual Shibboleth SP configuration within Apache
-(preferred over XML-based configuration) will be added.
+More soon about `recipe[shibboleth-sp::apache2]`.
 
 ### IIS Handling
 
