@@ -31,6 +31,8 @@ Installs/Configures Shibboleth Service Provider.
   https://FQDN/shibboleth
 * `node['shibboleth-sp']['REMOTE_USER']` - REMOTE_USER data returned to web
   server, defaults to "eppn persistent-id targeted-id"
+* `node['shibboleth-sp']['sign-messages']` - "true", "false", "front", or
+  "back", whether to sign outgoing messages, defaults to "false"
 * `node['shibboleth-sp']['Sessions']['checkAddress']` - check source address,
   breaks with NAT/proxy, defaults to "false"
 * `node['shibboleth-sp']['Sessions']['cookieProps']` - cookie properties,
@@ -60,9 +62,6 @@ Installs/Configures Shibboleth Service Provider.
 * `node['shibboleth-sp']['attribute-map']['attributes']` - An array of hashs 
   with the name (required), id (required), and nameFormat (optional) of 
   attirbutes to map from the IdP.
-* `node['shibboleth-sp']['sign-messages']` - Whether to sign outgoing messages.
-Defaults to false.
-
 
 ### Web Server Specific Attributes
 
