@@ -99,7 +99,7 @@
 
 	<!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
 	<ApplicationDefaults entityID="<%= node['shibboleth-sp']['entityID'] %>"
-            REMOTE_USER="<%= node['shibboleth-sp']['REMOTE_USER'] %>" signing="<%= node['shibboleth-sp']['sign-messages'] ? node['shibboleth-sp']['sign'] : "false" %>">
+            REMOTE_USER="<%= node['shibboleth-sp']['REMOTE_USER'] %>" signing="<%= node['shibboleth-sp']['sign-messages'] %>">
 
 		<!--
 		Controls session lifetimes, address checks, cookie handling, and the protocol handlers.
