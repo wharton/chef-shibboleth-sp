@@ -60,6 +60,8 @@ Installs/Configures Shibboleth Service Provider.
 * `node['shibboleth-sp']['attribute-map']['attributes']` - An array of hashs 
   with the name (required), id (required), and nameFormat (optional) of 
   attirbutes to map from the IdP.
+* `node['shibboleth-sp']['sign-messages']` - Whether to sign outgoing messages.
+Defaults to false.
 
 
 ### Web Server Specific Attributes
