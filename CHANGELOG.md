@@ -1,3 +1,7 @@
+## v0.1.0
+
+* Added platform specific user node attribute.
+
 ## v0.0.8
 
 * Updated README

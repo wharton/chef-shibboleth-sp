@@ -22,6 +22,7 @@ Installs/Configures Shibboleth Service Provider.
 
 * `node['shibboeth-sp']['version']` - Version of shibboleth-sp to
   install (if Windows or from source).
+* `node['shibboeth-sp']['user']` - Shibboleth-sp user.
 
 ### Simple Attribute-Driven Configuration Attributes
 
