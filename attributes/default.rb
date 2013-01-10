@@ -54,17 +54,17 @@ default['shibboleth-sp']['Handler']['Status']['acl'] = "127.0.0.1 ::1"
 # ]
 
 # Platform specific customizations
-case node['platform_family']
+case node['platform']
 when 'windows'
   default['shibboleth-sp']['dir'] = "C:/opt/shibboleth-sp/etc/shibboleth"
   default['shibboleth-sp']['windows']['url']      = "http://shibboleth.net/downloads/service-provider/latest/win64/shibboleth-sp-#{node['shibboleth-sp']['version']}-win64.msi"
   default['shibboleth-sp']['windows']['checksum'] = "d40431e3b4f2aff8ae035f2a434418106900ea6d9a7d06b2b0c2e9a30119b54c"
   default['shibboleth-sp']['user'] = "shibd"
-when 'rhel'
+when 'redhat'
   default['shibboleth-sp']['dir'] = "/etc/shibboleth"
   default['shibboleth-sp']['redhat']['use_rhn'] = false
   default['shibboleth-sp']['user'] = "shibd"
-when 'debian'
+when 'ubuntu'
   default['shibboleth-sp']['dir'] = "/etc/shibboleth"
   default['shibboleth-sp']['user'] = "_shibd"
 else 
