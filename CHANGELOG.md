@@ -1,3 +1,11 @@
+## v0.1.2 
+
+* Added sp_cert_key recipe.
+
+## v0.1.1
+
+* Changed case statement to use platform rather than platform family.
+
 ## v0.1.0
 
 * Added platform specific user node attribute.
