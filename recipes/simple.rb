@@ -24,7 +24,7 @@ template "#{node['shibboleth-sp']['dir']}/attribute-map.xml" do
 	owner "root" unless platform? 'windows'
 	group "root" unless platform? 'windows'
 	mode "0644"
-	notifies :restart, resources(:service => "shibd"), :delayed
+	notifies :restart, "service[shibd]", :delayed
 end
 
 template "#{node['shibboleth-sp']['dir']}/shibboleth2.xml" do
@@ -32,5 +32,5 @@ template "#{node['shibboleth-sp']['dir']}/shibboleth2.xml" do
 	owner "root" unless platform? 'windows'
 	group "root" unless platform? 'windows'
 	mode "0644"
-	notifies :restart, resources(:service => "shibd"), :delayed
+	notifies :restart, "service[shibd]", :delayed
 end
