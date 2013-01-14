@@ -1,3 +1,4 @@
+name              "shibboleth-sp"
 maintainer        "The Wharton School - The University of Pennsylvania"
 maintainer_email  "chef-admins@wharton.upenn.edu"
 license           "Apache 2.0"
@@ -8,7 +9,7 @@ recipe            "shibboleth-sp::apache", "Base recipe and Apache handling."
 recipe            "shibboleth-sp::iis", "Base recipe and IIS handling."
 recipe            "shibboleth-sp::simple", "Base recipe and simple attribute-driven configuration."
 
-%w{ apache2 shibboleth-sp windows yum }.each do |d|
+%w{ apache2 windows yum }.each do |d|
   depends d
 end
 
