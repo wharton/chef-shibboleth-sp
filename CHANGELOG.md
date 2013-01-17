@@ -1,3 +1,7 @@
+## v0.1.3 
+
+* Minor updates to support centos.
+
 ## v0.1.2 
 
 * Added sp_cert_key recipe.

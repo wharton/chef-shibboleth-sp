@@ -18,7 +18,7 @@
 #
 
 case node['platform']
-when 'redhat'
+when 'centos','redhat'
   unless node['shibboleth-sp']['redhat']['use_rhn']
     include_recipe "yum"
 
