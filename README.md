@@ -28,6 +28,12 @@ Installs/Configures Shibboleth Service Provider.
 
 * `node['shibboleth-sp']['Errors']['supportContact']` - admin email, defaults
   to "root@FQDN"
+* `node['shibboleth-sp']['Errors']['helpLocation']` - help url, defaults
+  to "/about.html"
+* `node['shibboleth-sp']['Errors']['styleSheet']` - stylesheet url, defaults
+  to "/shibboleth-sp/main.css"
+* `node['shibboleth-sp']['Errors']['logoLocation']` - logo url, defaults
+  to "/shibboleth-sp/logo.jpg"
 * `node['shibboleth-sp']['entityID']` - SP entity URL, defaults to 
   https://FQDN/shibboleth
 * `node['shibboleth-sp']['REMOTE_USER']` - REMOTE_USER data returned to web

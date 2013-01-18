@@ -20,6 +20,9 @@
 default['shibboleth-sp']['version'] = "2.5.0"
 
 default['shibboleth-sp']['Errors']['supportContact'] = "root@#{node['fqdn']}"
+default['shibboleth-sp']['Errors']['helpLocation'] = "/about.html"
+default['shibboleth-sp']['Errors']['styleSheet'] = "/shibboleth-sp/main.css"
+default['shibboleth-sp']['Errors']['logoLocation'] = "/shibboleth-sp/logo.jpg"
 default['shibboleth-sp']['entityID'] = "https://#{node['fqdn']}/shibboleth"
 default['shibboleth-sp']['REMOTE_USER'] = "eppn persistent-id targeted-id"
 default['shibboleth-sp']['sign-messages'] = "false"

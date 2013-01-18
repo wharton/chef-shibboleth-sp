@@ -1,3 +1,7 @@
+## v0.1.4 
+
+* Added additional attributes for error configuration.
+
 ## v0.1.3 
 
 * Minor updates to support centos.

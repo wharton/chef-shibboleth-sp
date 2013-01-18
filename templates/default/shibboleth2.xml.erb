@@ -152,9 +152,9 @@
 		also add attributes with values that can be plugged into the templates.
 		-->
 		<Errors supportContact="<%= node['shibboleth-sp']['Errors']['supportContact'] %>"
-			helpLocation="/about.html"
-			styleSheet="/shibboleth-sp/main.css"
-			logoLocation="/shibboleth-sp/logo.jpg" />
+			helpLocation="<%= node['shibboleth-sp']['Errors']['helpLocation'] %>"
+			styleSheet="<%= node['shibboleth-sp']['Errors']['styleSheet'] %>"
+			logoLocation="<%= node['shibboleth-sp']['Errors']['logoLocation'] %>" />
 		
 		<!-- Example of remotely supplied batch of signed metadata. -->
 		<!--
