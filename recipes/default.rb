@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+repo_url = "http://download.opensuse.org/repositories/security:/shibboleth"
+
 case node['platform']
 when 'centos'
   include_recipe "yum"
@@ -28,13 +30,13 @@ when 'centos'
   end
 
   yum_key "RPM-GPG-KEY-security:shibboleth" do
-    url "http://download.opensuse.org/repositories/security:/shibboleth/#{repo_location}/repodata/repomd.xml.key"
+    url "#{repo_url}/#{repo_location}/repodata/repomd.xml.key"
     action :add
   end
 
   yum_repository "security:shibboleth" do
     description "Shibboleth Repository"
-    url "http://download.opensuse.org/repositories/security:/shibboleth/#{repo_location}/"
+    url "#{repo_url}/#{repo_location}/"
     key "RPM-GPG-KEY-security:shibboleth"
     type "rpm-md"
     action :add
@@ -47,13 +49,13 @@ when 'redhat'
     repo_location = "RHEL_#{node['platform_version'].to_i}"
 
     yum_key "RPM-GPG-KEY-security:shibboleth" do
-      url "http://download.opensuse.org/repositories/security:/shibboleth/#{repo_location}/repodata/repomd.xml.key"
+      url "#{repo_url}/#{repo_location}/repodata/repomd.xml.key"
       action :add
     end
 
     yum_repository "security:shibboleth" do
       description "Shibboleth Repository"
-      url "http://download.opensuse.org/repositories/security:/shibboleth/#{repo_location}/"
+      url "#{repo_url}/#{repo_location}/"
       key "RPM-GPG-KEY-security:shibboleth"
       type "rpm-md"
       action :add
