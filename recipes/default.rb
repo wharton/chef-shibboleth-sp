@@ -18,7 +18,30 @@
 #
 
 case node['platform']
-when 'centos','redhat'
+when 'centos'
+  include_recipe "yum"
+  case node['platform_version'].to_i
+  when 5
+    repo_location = "CentOS_5"
+  when 6
+    repo_location = "CentOS_CentOS-6"
+  end
+
+  yum_key "RPM-GPG-KEY-security:shibboleth" do
+    url "http://download.opensuse.org/repositories/security:/shibboleth/#{repo_location}/repodata/repomd.xml.key"
+    action :add
+  end
+
+  yum_repository "security:shibboleth" do
+    description "Shibboleth Repository"
+    url "http://download.opensuse.org/repositories/security:/shibboleth/#{repo_location}/"
+    key "RPM-GPG-KEY-security:shibboleth"
+    type "rpm-md"
+    action :add
+  end
+
+  package "shibboleth"
+when 'redhat'
   unless node['shibboleth-sp']['redhat']['use_rhn']
     include_recipe "yum"
 
