@@ -44,15 +44,16 @@ when 'centos'
 when 'redhat'
   unless node['shibboleth-sp']['redhat']['use_rhn']
     include_recipe "yum"
+    repo_location = "RHEL_#{node['platform_version'].to_i}"
 
     yum_key "RPM-GPG-KEY-security:shibboleth" do
-      url "http://download.opensuse.org/repositories/security:/shibboleth/RHEL_#{node['platform_version'].to_i}/repodata/repomd.xml.key"
+      url "http://download.opensuse.org/repositories/security:/shibboleth/#{repo_location}/repodata/repomd.xml.key"
       action :add
     end
 
     yum_repository "security:shibboleth" do
       description "Shibboleth Repository"
-      url "http://download.opensuse.org/repositories/security:/shibboleth/RHEL_#{node['platform_version'].to_i}/"
+      url "http://download.opensuse.org/repositories/security:/shibboleth/#{repo_location}/"
       key "RPM-GPG-KEY-security:shibboleth"
       type "rpm-md"
       action :add
