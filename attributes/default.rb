@@ -32,6 +32,7 @@ default['shibboleth-sp']['Sessions']['handlerSSL'] = "false"
 default['shibboleth-sp']['Sessions']['lifetime'] = 28800
 default['shibboleth-sp']['Sessions']['relayState'] = "ss:mem"
 default['shibboleth-sp']['Sessions']['timeout'] = 3600
+default['shibboleth-sp']['saml-query'] = true
 
 # Single IdP (overrode by ['SSO']['discoveryURL'])
 default['shibboleth-sp']['SSO']['entityID'] = "https://idp.example.org/idp/shibboleth"

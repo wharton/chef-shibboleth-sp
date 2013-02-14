@@ -1,3 +1,7 @@
+## v0.1.5
+
+* Added attribute to enabale/disable SAML attribute query.
+
 ## v0.1.4 
 
 * Added additional attributes for error configuration.

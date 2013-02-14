@@ -49,6 +49,7 @@ Installs/Configures Shibboleth Service Provider.
 * `node['shibboleth-sp']['Sessions']['lifetime']` - defaults to 28800
 * `node['shibboleth-sp']['Sessions']['relayState']` - defaults to "ss:mem"
 * `node['shibboleth-sp']['Sessions']['timeout']` - defaults to 3600
+* `node['shibboleth-sp']['saml-query']` - defaults to `true`
 * `node['shibboleth-sp']['SSO']['entityID']` - single IdP entity URL,
   _must_ be set to your IdP unless using `node['shibboleth-sp']['SSO']['discoveryURL']`
 * `node['shibboleth-sp']['SSO']['discoveryProtocol']` - Multiple IdP Discovery
