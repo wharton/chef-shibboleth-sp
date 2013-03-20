@@ -88,6 +88,7 @@ Installs/Configures Shibboleth Service Provider.
 * `recipe[shibboleth-sp::apache2]` Base recipe and Apache handling.
 * `recipe[shibboleth-sp::iis]` Base recipe and IIS handling.
 * `recipe[shibboleth-sp::simple]` Base recipe and simple attribute-driven configuration.
+* `recipe[shibboleth-sp::sp_cert_key]` Recipe to configure sp cert and key using data bags or node attributes.
 
 ## Usage
 
@@ -105,6 +106,10 @@ you are probably better off writing a custom site cookbook, outlined below.
 
 Use `recipe[shibboleth-sp]` and create a site cookbook that uses cookbook_files
 or templates to overwrite files in the Shibboleth SP directory.
+
+### SP Certificate and Key
+
+The certificate and key used by your SP for signing and encryption will be generated when the SP software is installed. You can choose to use your own certificate for this purpose by using the `shibboleth-sp::sp_cert_key` recipe. This recipe will check for a data bag item `shibboleth.sp` with a key matching the `node['shiboboleth-sp']['entityID']`. If that does not exits it will check for a key matching the chef environment (or `local` for chef-solo). Finally if the data bag does not exist or there are no matching keys the recipe will look to the `node['shibboleth-sp']['cert']` and `node['shibboleth-sp']['key']` attributes.
 
 ### Apache Handling
 

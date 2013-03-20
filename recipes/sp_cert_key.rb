@@ -24,17 +24,21 @@
 begin
   if Chef::Config[:solo]
     begin 
-      shibboleth_sp_data_bag = Chef::DataBagItem.load("shibboleth","sp")['local']
-      sp_cert = shibboleth_sp_data_bag['cert']
-      sp_key = shibboleth_sp_data_bag['key']
+      shibboleth_sp_data_bag = Chef::DataBagItem.load("shibboleth","sp")
+      cert_key = shibboleth_sp_data_bag[node['shibboleth-sp']['entityID']]
+      cert_key ||= shibboleth_sp_data_bag['local']
+      sp_cert = cert_key['cert']
+      sp_key = cert_key['key']
     rescue
       Chef::Log.info("No shibboleth-sp data bag found")
     end
   else
     begin 
-      shibboleth_sp_data_bag = Chef::EncryptedDataBagItem.load("shibboleth","sp")[node.chef_environment]
-      sp_cert = shibboleth_sp_data_bag['cert']
-      sp_key = shibboleth_sp_data_bag['key']
+      shibboleth_sp_data_bag = Chef::EncryptedDataBagItem.load("shibboleth","sp")
+      cert_key = shibboleth_sp_data_bag[node['shibboleth-sp']['entityID']]
+      cert_key ||= shibboleth_sp_data_bag[node.chef_environment]
+      sp_cert = cert_key['cert']
+      sp_key = cert_key['key']
     rescue
       Chef::Log.info("No shibboleth-sp encrypted data bag found")
     end

@@ -1,3 +1,7 @@
+## v0.1.6
+
+* Changed sp certificate and key lookup to support storing key pairs per entityID in the sp data bag.
+
 ## v0.1.5
 
 * Added attribute to enabale/disable SAML attribute query.
