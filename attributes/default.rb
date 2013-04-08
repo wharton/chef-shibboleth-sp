@@ -44,6 +44,9 @@ default['shibboleth-sp']['SSO']['discoveryURL'] = ""
 # Status Handler ACL
 default['shibboleth-sp']['Handler']['Status']['acl'] = "127.0.0.1 ::1"
 
+# Logging
+default['shibboleth-sp']['logging']['root'] = "INFO"
+
 # Metadata Provider
 # default['shibboleth-sp']['MetadataProvider']['path'] = ""
 # default['shibboleth-sp']['MetadataProvider']['url'] = ""

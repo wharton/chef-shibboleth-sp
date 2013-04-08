@@ -1,3 +1,7 @@
+## 0.2.0
+
+* Added `node['shibboleth-sp']['logging']['root']` attribute and shibd.logger template
+
 ## v0.1.6
 
 * Changed sp certificate and key lookup to support storing key pairs per entityID in the sp data bag.
