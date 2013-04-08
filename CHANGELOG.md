@@ -1,6 +1,6 @@
 ## 0.2.0
 
-* Added `node['shibboleth-sp']['logging']['root']` attribute and shibd.logger template
+* Added `node['shibboleth-sp']['logging']` attributes and shibd.logger template
 
 ## v0.1.6
 

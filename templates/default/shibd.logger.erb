@@ -16,21 +16,21 @@ log4j.category.XMLTooling.libcurl=INFO
 # useful categories to tune independently:
 #
 # tracing of SAML messages and security policies
-#log4j.category.OpenSAML.MessageDecoder=DEBUG
-#log4j.category.OpenSAML.MessageEncoder=DEBUG
-#log4j.category.OpenSAML.SecurityPolicyRule=DEBUG
-#log4j.category.XMLTooling.SOAPClient=DEBUG
+log4j.category.OpenSAML.MessageDecoder=<%= node['shibboleth-sp']['logging']['OpenSAML']['MessageDecoder'] %>
+log4j.category.OpenSAML.MessageEncoder=<%= node['shibboleth-sp']['logging']['OpenSAML']['MessageEncoder'] %>
+log4j.category.OpenSAML.SecurityPolicyRule=<%= node['shibboleth-sp']['logging']['OpenSAML']['SecurityPolicyRule'] %>
+log4j.category.XMLTooling.SOAPClient=<%= node['shibboleth-sp']['logging']['XMLTooling']['SOAPClient'] %>
 # interprocess message remoting
-#log4j.category.Shibboleth.Listener=DEBUG
+log4j.category.Shibboleth.Listener=<%= node['shibboleth-sp']['logging']['Shibboleth']['Listener'] %>
 # mapping of requests to applicationId
-#log4j.category.Shibboleth.RequestMapper=DEBUG
+log4j.category.Shibboleth.RequestMapper=<%= node['shibboleth-sp']['logging']['Shibboleth']['RequestMapper'] %>
 # high level session cache operations
-#log4j.category.Shibboleth.SessionCache=DEBUG
+log4j.category.Shibboleth.SessionCache=<%= node['shibboleth-sp']['logging']['Shibboleth']['SessionCache'] %>
 # persistent storage and caching
-#log4j.category.XMLTooling.StorageService=DEBUG
+log4j.category.XMLTooling.StorageService=<%= node['shibboleth-sp']['logging']['XMLTooling']['StorageService'] %>
 
 # logs XML being signed or verified if set to DEBUG
-log4j.category.XMLTooling.Signature.Debugger=INFO, sig_log
+log4j.category.XMLTooling.Signature.Debugger=<%= node['shibboleth-sp']['logging']['XMLTooling']['Signature'] %>, sig_log
 log4j.additivity.XMLTooling.Signature.Debugger=false
 
 # the tran log blocks the "default" appender(s) at runtime
