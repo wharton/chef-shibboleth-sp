@@ -1,3 +1,7 @@
+## 0.2.1
+
+* Added `node['shibboleth-sp']['Handler']['MetadataGenerator']['childElements']` attribute. 
+
 ## 0.2.0
 
 * Added `node['shibboleth-sp']['logging']` attributes and shibd.logger template
