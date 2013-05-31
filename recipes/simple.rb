@@ -34,3 +34,11 @@ template "#{node['shibboleth-sp']['dir']}/shibboleth2.xml" do
 	mode "0644"
 	notifies :restart, "service[shibd]", :delayed
 end
+
+template "#{node['shibboleth-sp']['dir']}/shibd.logger" do
+	source "shibd.logger.erb"
+	owner "root" unless platform? 'windows'
+	group "root" unless platform? 'windows'
+	mode "0644"
+	notifies :restart, "service[shibd]", :delayed
+end
