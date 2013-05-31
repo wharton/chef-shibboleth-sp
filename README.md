@@ -60,6 +60,8 @@ Installs/Configures Shibboleth Service Provider.
 * `node['shibboleth-sp']['Hanlder']['Status']['acl']` - IPs that can access the
   status handler. Defaults to `127.0.0.1 ::1`. If set to a blank string no acl
   is applied.
+* `node['shibboleth-sp']['Handler']['MetadataGenerator']
+['childElements']` - Child elements to add to the generated metadata.
 * `node['shibboleth-sp']['attribute-map']['name-id']` - A hash with the NameID
   name and id to map from the IdP.
 * `node['shibboleth-sp']['MetadataProvider']['path']` - Path to IdP metadata file.

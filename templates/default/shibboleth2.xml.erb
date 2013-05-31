@@ -7,6 +7,7 @@
 	xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
 	xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"    
 	xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+	xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
 	clockSkew="180">
 
 	<% if node['shibboleth-sp']['iis'] && node['shibboleth-sp']['iis']['sites'] -%>
@@ -131,7 +132,13 @@
 			<Logout>SAML2 Local</Logout>
 			
 			<!-- Extension service that generates "approximate" metadata based on SP configuration. -->
+			<% if node['shibboleth-sp']['Handler']['MetadataGenerator']['childElements'] -%>
+			<Handler type="MetadataGenerator" Location="/Metadata" signing="false">
+				<%= node['shibboleth-sp']['Handler']['MetadataGenerator']['childElements'] %>
+			</Handler>
+			<% else -%>			
 			<Handler type="MetadataGenerator" Location="/Metadata" signing="false"/>
+			<% end -%>
 
 			<!-- Status reporting service. -->
 			<Handler type="Status" Location="/Status" 
