@@ -46,16 +46,16 @@ default['shibboleth-sp']['Handler']['Status']['acl'] = "127.0.0.1 ::1"
 
 # Logging
 default['shibboleth-sp']['logging']['root'] = "INFO"
-default['shibboleth-sp']['logging']['OpenSAML']['MessageDecoder'] = "INFO"
-default['shibboleth-sp']['logging']['OpenSAML']['MessageEncoder'] = "INFO"
-default['shibboleth-sp']['logging']['OpenSAML']['SecurityPolicyRule'] = "INFO"
-default['shibboleth-sp']['logging']['Shibboleth']['Listener'] = "INFO"
-default['shibboleth-sp']['logging']['Shibboleth']['RequestMapper'] = "INFO"
-default['shibboleth-sp']['logging']['Shibboleth']['SessionCache'] = "INFO"
-default['shibboleth-sp']['logging']['XMLTooling']['libcurl'] = "INFO"
+default['shibboleth-sp']['logging']['OpenSAML']['MessageDecoder'] = nil
+default['shibboleth-sp']['logging']['OpenSAML']['MessageEncoder'] = nil
+default['shibboleth-sp']['logging']['OpenSAML']['SecurityPolicyRule'] = nil
+default['shibboleth-sp']['logging']['Shibboleth']['Listener'] = nil
+default['shibboleth-sp']['logging']['Shibboleth']['RequestMapper'] = nil
+default['shibboleth-sp']['logging']['Shibboleth']['SessionCache'] = nil
+default['shibboleth-sp']['logging']['XMLTooling']['libcurl'] = nil
 default['shibboleth-sp']['logging']['XMLTooling']['Signature'] = "INFO"
-default['shibboleth-sp']['logging']['XMLTooling']['SOAPClient'] = "INFO"
-default['shibboleth-sp']['logging']['XMLTooling']['StorageService'] = "INFO"
+default['shibboleth-sp']['logging']['XMLTooling']['SOAPClient'] = nil
+default['shibboleth-sp']['logging']['XMLTooling']['StorageService'] = nil
 
 # Metadata Provider
 # default['shibboleth-sp']['MetadataProvider']['path'] = ""
