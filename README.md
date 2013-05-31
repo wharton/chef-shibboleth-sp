@@ -8,7 +8,8 @@ Installs/Configures Shibboleth Service Provider.
 
 ### Platforms
 
-* RedHat 6.3 (Santiago)
+* CentOS 6
+* RedHat 6
 * Ubuntu 12.04 (Precise)
 * Windows 2008 R2 64-bit
 
@@ -70,6 +71,21 @@ Installs/Configures Shibboleth Service Provider.
 * `node['shibboleth-sp']['attribute-map']['attributes']` - An array of hashs 
   with the name (required), id (required), and nameFormat (optional) of 
   attirbutes to map from the IdP.
+
+### Logging Attributes
+
+For shibd.logger (all default to INFO):
+* `node['shibboleth-sp']['logging']['root']` - root log level
+* `node['shibboleth-sp']['logging']['OpenSAML']['MessageDecoder']`
+* `node['shibboleth-sp']['logging']['OpenSAML']['MessageEncoder']`
+* `node['shibboleth-sp']['logging']['OpenSAML']['SecurityPolicyRule']`
+* `node['shibboleth-sp']['logging']['Shibboleth']['Listener']`
+* `node['shibboleth-sp']['logging']['Shibboleth']['RequestMapper']`
+* `node['shibboleth-sp']['logging']['Shibboleth']['SessionCache']`
+* `node['shibboleth-sp']['logging']['XMLTooling']['libcurl']`
+* `node['shibboleth-sp']['logging']['XMLTooling']['Signature']`
+* `node['shibboleth-sp']['logging']['XMLTooling']['SOAPClient']`
+* `node['shibboleth-sp']['logging']['XMLTooling']['StorageService']`
 
 ### Web Server Specific Attributes
 
