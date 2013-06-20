@@ -42,7 +42,10 @@ when 'centos'
     action :add
   end
 
-  package "shibboleth"
+  package "shibboleth" do
+    version "#{node['shibboleth-sp']['version']}"
+    action :install
+  end
 when 'redhat'
   unless node['shibboleth-sp']['redhat']['use_rhn']
     include_recipe "yum"
@@ -62,7 +65,10 @@ when 'redhat'
     end
   end
 
-  package "shibboleth"
+  package "shibboleth" do
+    version "#{node['shibboleth-sp']['version']}"
+    action :install
+  end
 when 'ubuntu'
   include_recipe "apache2"
 
