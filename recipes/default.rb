@@ -43,7 +43,7 @@ when 'centos'
   end
 
   package "shibboleth" do
-    version "#{node['shibboleth-sp']['version']}"
+    version node['shibboleth-sp']['version']
     action :install
   end
 when 'redhat'
@@ -66,7 +66,7 @@ when 'redhat'
   end
 
   package "shibboleth" do
-    version "#{node['shibboleth-sp']['version']}"
+    version node['shibboleth-sp']['version']
     action :install
   end
 when 'ubuntu'
