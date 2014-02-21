@@ -1,3 +1,7 @@
+## 0.2.2
+
+* Added `node['shibboleth-sp']['attributePrefix']` attribute. 
+
 ## 0.2.1
 
 * Added `node['shibboleth-sp']['Handler']['MetadataGenerator']['childElements']` attribute. 
