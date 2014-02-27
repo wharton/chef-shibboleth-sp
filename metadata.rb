@@ -17,3 +17,5 @@ end
 %w{ centos redhat ubuntu windows }.each do |os|
   supports os
 end
+
+depends "yum", "~> 2.0"
