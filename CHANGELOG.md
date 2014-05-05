@@ -1,4 +1,4 @@
-## 0.2.3
+## 0.3.0
 
 * Updated default recipe to support yum cookbook version 3.x.
 
