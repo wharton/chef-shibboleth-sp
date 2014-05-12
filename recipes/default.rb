@@ -29,16 +29,10 @@ when 'centos'
     repo_location = "CentOS_CentOS-6"
   end
 
-  yum_key "RPM-GPG-KEY-security:shibboleth" do
-    url "#{repo_url}/#{repo_location}/repodata/repomd.xml.key"
-    action :add
-  end
-
   yum_repository "security:shibboleth" do
     description "Shibboleth Repository"
-    url "#{repo_url}/#{repo_location}/"
-    key "RPM-GPG-KEY-security:shibboleth"
-    type "rpm-md"
+    baseurl "#{repo_url}/#{repo_location}/"
+    gpgkey "#{repo_url}/#{repo_location}/repodata/repomd.xml.key"
     action :add
   end
 
@@ -48,16 +42,10 @@ when 'redhat'
     include_recipe "yum"
     repo_location = "RHEL_#{node['platform_version'].to_i}"
 
-    yum_key "RPM-GPG-KEY-security:shibboleth" do
-      url "#{repo_url}/#{repo_location}/repodata/repomd.xml.key"
-      action :add
-    end
-
     yum_repository "security:shibboleth" do
       description "Shibboleth Repository"
-      url "#{repo_url}/#{repo_location}/"
-      key "RPM-GPG-KEY-security:shibboleth"
-      type "rpm-md"
+      baseurl "#{repo_url}/#{repo_location}/"
+      gpgkey "#{repo_url}/#{repo_location}/repodata/repomd.xml.key"
       action :add
     end
   end

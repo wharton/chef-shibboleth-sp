@@ -1,3 +1,7 @@
+## 0.3.0
+
+* Updated default recipe to support yum cookbook version 3.x.
+
 ## 0.2.2
 
 * Added `node['shibboleth-sp']['attributePrefix']` attribute. 
