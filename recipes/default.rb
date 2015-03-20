@@ -27,6 +27,8 @@ when 'centos'
     repo_location = "CentOS_5"
   when 6
     repo_location = "CentOS_CentOS-6"
+  when 7
+    repo_location = "CentOS_7"
   end
 
   yum_repository "security:shibboleth" do
