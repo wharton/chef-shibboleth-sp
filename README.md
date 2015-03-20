@@ -8,7 +8,7 @@ Installs/Configures Shibboleth Service Provider.
 
 ### Platforms
 
-* CentOS 6
+* CentOS 6,7
 * RedHat 6
 * Ubuntu 12.04 (Precise)
 * Windows 2008 R2 64-bit
