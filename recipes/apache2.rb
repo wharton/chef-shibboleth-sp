@@ -16,3 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+include_recipe 'shibboleth-sp'
+include_recipe 'apache2'
+
+apache_module 'shib' do
+	conf true
+	module_path "/usr/lib64/shibboleth/mod_shib_22.so"
+	identifier "mod_shib"
+end
+
