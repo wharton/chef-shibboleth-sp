@@ -1,0 +1,33 @@
+#
+# Ensures handler will be accessible.
+#
+<Location /Shibboleth.sso>
+  Satisfy Any
+  Allow from all
+</Location>
+
+#
+# Used for example style sheet in error templates.
+#
+<IfModule mod_alias.c>
+  <Location /shibboleth-sp>
+    Satisfy Any
+    Allow from all
+  </Location>
+  Alias /shibboleth-sp/main.css /usr/share/shibboleth/main.css
+</IfModule>
+
+#
+# Configure the module for content.
+#
+# You MUST enable AuthType shibboleth for the module to process
+# any requests, and there MUST be a require command as well. To
+# enable Shibboleth but not specify any session/access requirements
+# use "require shibboleth".
+#
+<Location /secure>
+  AuthType shibboleth
+  ShibCompatWith24 On
+  ShibRequestSetting requireSession 1
+  require shib-session
+</Location>
