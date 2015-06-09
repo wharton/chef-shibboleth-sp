@@ -19,9 +19,21 @@
 include_recipe 'shibboleth-sp'
 include_recipe 'apache2'
 
+Chef::Log.fatal("#{node['kernel']['machine']}")
+if node['kernel']['machine'] == 'x86_64'
+	shib_lib_path = '/usr/lib64/shibboleth'
+elsif node['kernel']['machine'] == 'i686'
+	shib_lib_path = '/usr/lib/shibboleth'
+else
+	Chef::Log.fatal('What is the machine')
+end
+	
 apache_module 'shib' do
 	conf true
-	module_path "/usr/lib64/shibboleth/mod_shib_22.so"
+	module_path "#{shib_lib_path}/mod_shib_22.so"
 	identifier "mod_shib"
 end
 
+service "http" do
+	action :restart
+end
