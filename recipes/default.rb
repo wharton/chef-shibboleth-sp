@@ -58,7 +58,9 @@ when 'ubuntu'
     package pkg
   end
 
-  apache_module "shib2"
+  apache_module "shib2" do
+    identifier "mod_shib"
+  end
 
   execute "Generate Shibboleth SP Key" do
     cwd node['shibboleth-sp']['dir']
