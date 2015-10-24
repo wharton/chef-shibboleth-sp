@@ -58,7 +58,12 @@ when 'ubuntu'
     package pkg
   end
 
-  apache_module "shib2"
+  apache_module "shib2" do
+    identifier 'mod_shib'
+    if node['platform_version'] == "12.04"
+      filename 'mod_shib_22.so'
+    end
+  end
 
   execute "Generate Shibboleth SP Key" do
     cwd node['shibboleth-sp']['dir']
