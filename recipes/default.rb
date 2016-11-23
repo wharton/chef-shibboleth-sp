@@ -51,7 +51,7 @@ when 'redhat'
   end
 
   package "shibboleth"
-when 'ubuntu'
+when 'ubuntu', 'debian'
   include_recipe "apache2"
 
   %w{ libapache2-mod-shib2 libshibsp-dev libshibsp-doc opensaml2-tools shibboleth-sp2-schemas }.each do |pkg|
