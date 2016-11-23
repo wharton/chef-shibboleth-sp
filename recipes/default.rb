@@ -51,14 +51,16 @@ when 'redhat'
   end
 
   package "shibboleth"
-when 'ubuntu'
+when 'ubuntu', 'debian'
   include_recipe "apache2"
 
   %w{ libapache2-mod-shib2 libshibsp-dev libshibsp-doc opensaml2-tools shibboleth-sp2-schemas }.each do |pkg|
     package pkg
   end
 
-  apache_module "shib2"
+  apache_module "shib2" do
+    identifier "mod_shib"
+  end
 
   execute "Generate Shibboleth SP Key" do
     cwd node['shibboleth-sp']['dir']

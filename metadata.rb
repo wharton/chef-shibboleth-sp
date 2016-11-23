@@ -3,7 +3,7 @@ maintainer        "The Wharton School - The University of Pennsylvania"
 maintainer_email  "chef-admins@wharton.upenn.edu"
 license           "Apache 2.0"
 description       "Installs/Configures Shibboleth Service Provider"
-version           "0.3.0"
+version           "0.3.3"
 recipe            "shibboleth-sp", "Installs and enables base Shibboleth Service Provider."
 recipe            "shibboleth-sp::apache", "Base recipe and Apache handling."
 recipe            "shibboleth-sp::iis", "Base recipe and IIS handling."
@@ -15,6 +15,6 @@ depends           "yum", ">= 3.0.0"
   depends d
 end
 
-%w{ centos redhat ubuntu windows }.each do |os|
+%w{ centos redhat ubuntu debian windows }.each do |os|
   supports os
 end
